@@ -1,0 +1,171 @@
+// git quick guide
+
+//config username
+git config --global user.name "hosttor"
+
+//config email
+git config --global user.email "partners@hosttor.com"
+
+//quick command
+git init
+git commit -m "Commit Message"
+git remote add origin https://github.com/hosttor/git-cheatsheet.git
+git push -u origin master
+
+//create a bootable os
+lsblk
+sudo umount /dev/sdb1
+sudo dd bs=4M if=/path/to/distro.iso of=/dev/sdb && sync
+
+//command
+netstat -an |more, uptime, w, whoami, uname, free, top, ps -ux, ps -aux, fdisk -l
+
+//install gnome3
+sudo add-apt-repository ppa:gnome3-team/gnome3
+gksu apt-get update
+apt-get dist-upgrade
+apt-get install gnome-shell
+
+//reduce overheating
+add-apt-repository ppa:linrunner/tlp
+apt-get update
+apt-get install tlp tlp-rdw
+tlp start
+
+//install simple screen recorder
+add-apt-repository ppa:maarten-baert/simplescreenrecorder
+apt-get update
+apt-get install simplescreenrecorder
+
+//setup server
+lamp-stack^ or apache2 mysql-server mysql-client phpmyadmin
+php5 libapache2-mod-php5 php5-gd php-db php5-mysql php5-dev php-pear php5-curl php5-intl php5-mcrypt php5-imagick git drush
+
+//setup composer
+curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+//setup upload progress
+sudo pecl install uploadprogress //Note Open: /etc/php5/apache2/php.ini and add "extension=uploadprogress.so" //to php.ini
+
+//file manager
+bunzip2
+gunzip file.tar.gz #remove gz
+tar -xvf #remove tar
+tar cvzf file.tar.gz file
+
+//create zip file
+make zip file: zip -r dir.zip dir
+
+//rsync 
+sudo rsync -avzhe ssh user@host:~/url/file ~/Downloads/
+sudo rsync -avzhe ssh ~/Downloads/ user@host:~/url/file
+
+//
+Edit: sudo nano /etc/apache2/sites-available/000-default.conf
+    DocumentRoot /var/www/cloud
+ 
+Edit: sudo nano /etc/apache2/apache2.conf
+    <Directory /var/www/cloud/>
+      Options Indexes FollowSymLinks
+      AllowOverride None ***change to All
+      Require all granted
+    </Directory>
+
+
+// Vagrant box settings
+
+//see list if boxes
+vagrant box list http://vagrantbox.es
+
+//ubuntu/trusty64 box
+ubuntu/trusty64: https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box
+
+//add box
+vagrant box add ubuntu/trusty64
+
+//remove box 
+vagrant box remove {box name} virtual box
+
+//edit vagrant directory on apache2
+sudo nano /etc/apache2/sites-enabled/000-default.conf
+
+//change path from /var/www/html to /vagrant
+<DocumentRoot /vagrant>
+
+
+//add this script
+ <Directory /vagrant>
+     Options -Indexes +FollowSymlinks +MultiViews
+     AllowOverride All
+     Require all granted
+ </Directory>
+
+//MySQL command
+
+//use to login
+mysql -u user -p
+
+//create database
+CREATE database dbname;
+
+//create user
+CREATE user hm@localhost IDENTIFIED BY 'userpw';
+ 
+//grant privileges
+GRANT ALL PRIVILEGES ON dbname.* TO hm@localhost IDENTIFIED BY 'userpwm';
+FLUSH PRIVILEGES;
+
+//set password
+SET PASSWORD FOR ‘root’@’localhost’ = PASSWORD(‘newpass’); #change password for$
+ 
+//change password
+UPDATE user SET Password=PASSWORD('newpass') WHERE User='username'; FLUSH PRIVILEGES;
+
+//select all
+SELECT * FROM mysql.user;
+
+//delete user
+DROP USER 'username'@'localhost'; or DROP USER username;
+
+//delete database
+DROP database dbname;
+
+//show database
+SHOW databases;
+
+//show tables on database
+SHOW tables FROM dbname;
+
+//import database
+mysql -u user -p dbname < db.sql Note:import
+
+//backup from local server
+mysqldump -u user_name -h localhost -p database_name | gzip -9 > backup_name.sql.gz
+
+
+//emacs configuration file
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(menu-bar-mode nil)
+ '(org-agenda-files (quote ("~/.org")))
+ '(package-archives (quote (("gnum" . "https://melpa.org/packages/") ("gnu" . "http://elpa.gnu.org/packages/"))))
+ '(pop3-authentication-scheme (quote pass))
+ '(pop3-leave-mail-on-server nil)
+ '(pop3-maildrop "hosttor.com")
+ '(pop3-password-required t)
+ '(tool-bar-mode nil))
+(setq shell-command-switch "-ic")
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "black" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight bold :height 90 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(cursor ((t (:background "gold"))))
+ '(highlight ((t (:background "blue"))))
+ '(isearch ((t (:background "black" :foreground "green"))))
+ '(link ((t (:foreground "gold" :underline t))))
+ '(link-visited ((t (:inherit link :foreground "magenta")))))
