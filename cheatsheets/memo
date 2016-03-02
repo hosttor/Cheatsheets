@@ -22,9 +22,8 @@ netstat -an |more, uptime, w, whoami, uname, free, top, ps -ux, ps -aux, fdisk -
 
 //install gnome3
 sudo add-apt-repository ppa:gnome3-team/gnome3
-gksu apt-get update
-apt-get dist-upgrade
-apt-get install gnome-shell
+sudo apt-get update;apt-get dist-upgrade
+sudo apt-get install gnome-shell gdm gnome-shell-extensions gnome-tweak-tool gnome-contacts gnome-control-center
 
 //reduce overheating
 add-apt-repository ppa:linrunner/tlp
