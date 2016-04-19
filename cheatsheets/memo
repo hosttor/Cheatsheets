@@ -168,3 +168,12 @@ mysqldump -u user_name -h localhost -p database_name | gzip -9 > backup_name.sql
  '(isearch ((t (:background "black" :foreground "green"))))
  '(link ((t (:foreground "gold" :underline t))))
  '(link-visited ((t (:inherit link :foreground "magenta")))))
+ 
+ 
+ //to save buffer
+(defun save-all-buffers ()
+"Unconditionally save all modified buffers."
+(interactive)
+(save-some-buffers 1)
+(message "All buffers saved"))
+(add-hook 'focus-out-hook 'save-all-buffers)
