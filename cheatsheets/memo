@@ -141,6 +141,24 @@ mysql -u user -p dbname < db.sql Note:import
 //backup from local server
 mysqldump -u user_name -h localhost -p database_name | gzip -9 > backup_name.sql.gz
 
+#ssl
+  # Force to open with https 
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^hosttor\.com*
+  RewriteRule ^(.*)$ https://www.hosttor.com/$1 [L,R=301]
+
+# force subdomain with https
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP_HOST} !^(www\.)?hosttor\.com$ [NC]
+  RewriteCond %{HTTP_HOST} ^(?:www\.|)(.*)$ [NC]
+  RewriteRule ^.*$ https://%1%{REQUEST_URI} [R,L]
+  
+  #trusted
+  $settings['trusted_host_patterns'] = array(
+    '^www\.news\.hosttor\.com$',
+    '^news\.hosttor\.com$',
+);
+
 
 //emacs configuration file
 (custom-set-variables
