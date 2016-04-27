@@ -159,6 +159,9 @@ mysqldump -u user_name -h localhost -p database_name | gzip -9 > backup_name.sql
     '^news\.hosttor\.com$',
 );
 
+## hack
+node#overlay=admin/appearance/install
+admin/config/development/performance#edit-clear-cache
 
 //emacs configuration file
 (custom-set-variables
