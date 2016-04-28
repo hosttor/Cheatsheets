@@ -50,6 +50,9 @@ sudo drush dl drush --destination='/usr/share'
 //setup composer
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 
+## fix drupal install php error
+sudo apt-get install libapache2-mod-auth-mysql php5-mysql phpmyadmin
+
 //setup upload progress
 sudo pecl install uploadprogress //Note Open: /etc/php5/apache2/php.ini and add "extension=uploadprogress.so" //to php.ini
 
