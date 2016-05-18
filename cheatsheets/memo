@@ -151,6 +151,18 @@ mysql -u user -p dbname < db.sql Note:import
 //backup from local server
 mysqldump -u user_name -h localhost -p database_name | gzip -9 > backup_name.sql.gz
 
+//mysql user info
+select user();
+
+//mysql more info
+show variables;
+
+//mysql port
+SHOW VARIABLES WHERE Variable_name = 'port';
+
+//mysql hostname
+SHOW VARIABLES WHERE Variable_name = 'hostname';
+
 #ssl
   # Force to open with https 
   RewriteCond %{HTTPS} off [OR]
