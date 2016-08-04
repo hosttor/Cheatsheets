@@ -12,10 +12,13 @@ git commit -m "Commit Message"
 git remote add origin https://github.com/hosttor/git-cheatsheet.git
 git push -u origin master
 
-//create a bootable os
+//create bootable usb
 lsblk
 sudo umount /dev/sdb1
 sudo dd bs=4M if=/path/to/distro.iso of=/dev/sdb && sync
+
+//create bootable usb with dd
+
 
 //command
 netstat -an |more, uptime, w, whoami, uname, free, top, ps -ux, ps -aux, fdisk -l
