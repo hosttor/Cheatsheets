@@ -13,12 +13,15 @@ git remote add origin https://github.com/hosttor/git-cheatsheet.git
 git push -u origin master
 
 //create bootable usb
-lsblk
-sudo umount /dev/sdb1
-sudo dd bs=4M if=/path/to/distro.iso of=/dev/sdb && sync
+lsblk (List all blocks)
+sudo umount /dev/sda1 (change to sda1 to proper drive a, b, c, d etc)
+sudo dd bs=4M if=/path/to/distro.iso of=/dev/sda && sync (create bootable drive. change */path/to/distro.iso to location of iso image and sda to proper drive a, b, c etc)
 
 //create bootable usb with dd
-
+sudo fdisk -l (list all mounted drive)
+sudo umount /dev/sda1 (change sda1 to proper drive a, b, c, d etc)
+sudo mkfs.vfat /dev/sda -I (format to single fat32 usb disk which is optional *Change sda1 to proper drive a, b, c, d etc)
+sudo dd bs=4M if=/path/to/distro.iso of=/dev/sda && sync (create bootable drive. change */path/to/distro.iso to locatio of iso image and sda to proper drive a, b, c etc)
 
 //command
 netstat -an |more, uptime, w, whoami, uname, free, top, ps -ux, ps -aux, fdisk -l
