@@ -192,19 +192,44 @@ node#overlay=admin/appearance/install
 admin/config/development/performance#edit-clear-cache
 
 //emacs configuration file
+;; set emacs title
+(setq frame-title-format "Hosttor - Website Technologies and IT Consulting")
+;; set menu bar
+(menu-bar-mode -1)
+;; set tool bar
+(tool-bar-mode -1)
+;; set scroll bar
+(scroll-bar-mode -1)
+;; set ido mode
+(ido-mode)
+;; show time
+(display-time-mode 1)
+
+;; set package manager
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/")
+             t)  
+(add-to-list 'package-archives
+             '("elpa" . "http://elpa.org/packages/")
+             t)  
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/")
+             t)  
+(package-initialize)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(menu-bar-mode nil)
- '(org-agenda-files (quote ("~/.org")))
- '(package-archives (quote (("gnum" . "https://melpa.org/packages/") ("gnu" . "http://elpa.gnu.org/packages/"))))
+
+ '(org-agenda-files (quote ("~/.libre/.org")))
+ ;;'(package-archives (quote (("gnum" . "https://melpa.org/packages/") ("gnu" . "http://elpa.gnu.org/packages/"))))
  '(pop3-authentication-scheme (quote pass))
  '(pop3-leave-mail-on-server nil)
  '(pop3-maildrop "hosttor.com")
- '(pop3-password-required t)
- '(tool-bar-mode nil))
+ '(pop3-password-required t))
 (setq shell-command-switch "-ic")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
