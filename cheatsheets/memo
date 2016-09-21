@@ -191,6 +191,16 @@ SHOW VARIABLES WHERE Variable_name = 'hostname';
 node#overlay=admin/appearance/install
 admin/config/development/performance#edit-clear-cache
 
+//form
+
+<!-- start crm-block -->
+
+<form action="#" id="Subscribe" method="post" name="Subscribe"><input name="qfKey" type="hidden" value="23b2dae6495a6802ca35a29262f47e02_4673" /> <input name="_qf_default" type="hidden" value="Subscribe:next" /> <input autocomplete="on" class="required" id="email" maxlength="254" name="email" placeholder="Email Address" size="30" type="text" /> <input checked="checked" class="crm-form-checkbox" id="mark_x_5" name="mark_x_5" type="hidden" value="1" /><br />
+<input class="btn btn-xs btn-success" crm-icon="fa-check" id="_qf_Subscribe_next-top" name="_qf_Subscribe_next" type="submit" value="Subscribe" />&nbsp;</form>
+<!-- end crm-block -->
+
+
+
 //emacs configuration file
 ;; set emacs title
 (setq frame-title-format "Hosttor - Website Technologies and IT Consulting")
