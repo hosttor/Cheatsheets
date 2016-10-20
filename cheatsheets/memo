@@ -47,6 +47,7 @@ apache2 mysql-server phpmyadmin
 
 //setup ssl
 a2enmod ssl
+service apache2 restart
 a2ensite default-ssl
 service apache2 reload
 mkdir /etc/apache2/ssl
