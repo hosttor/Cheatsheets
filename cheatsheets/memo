@@ -56,8 +56,8 @@ chmod 600 /etc/apache2/ssl/*
 nano /etc/apache2/sites-enabled/default-ssl.conf 
 Note: add ServerName example.com:443 before DocumentRoot
 add path for key and crt
-SSLCertificateFile     /etc/apache2/ssl/example.org.key
-SSLCertificateKeyFile     /etc/apache2/ssl/example.org.crt
+SSLCertificateFile     /etc/apache2/ssl/example.org.crt
+SSLCertificateKeyFile     /etc/apache2/ssl/example.org.key
 service apache2 reload
 
 #test
