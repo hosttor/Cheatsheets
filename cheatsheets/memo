@@ -59,6 +59,9 @@ SSLCertificateFile     /etc/apache2/ssl/example.org.key
 SSLCertificateKeyFile     /etc/apache2/ssl/example.org.crt
 service apache2 reload
 
+#test
+openssl s_client -connect localhost:443
+
 //restart
 /etc/init.d/apache2 restart
 
