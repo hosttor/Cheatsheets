@@ -66,6 +66,11 @@ openssl s_client -connect localhost:443
 //restart
 /etc/init.d/apache2 restart
 
+//root ssh login
+passwd root
+nano /etc/ssh/sshd_config Note: Change PermitRootLogin yes, PasswordAuthentication yes
+service sshd restart
+
 sudo apt-get -y update
 sudo add-apt-repository ppa:ondrej/php
 sudo apt-get -y update
