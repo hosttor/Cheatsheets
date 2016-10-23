@@ -67,6 +67,7 @@ openssl s_client -connect localhost:443
 /etc/init.d/apache2 restart
 
 //root ssh login
+sudo su root
 passwd root
 nano /etc/ssh/sshd_config Note: Change PermitRootLogin yes, PasswordAuthentication yes
 service sshd restart
