@@ -42,6 +42,9 @@ add-apt-repository ppa:maarten-baert/simplescreenrecorder
 apt-get update
 apt-get install simplescreenrecorder
 
+//fix application error
+apt-get update --fix-missing
+
 //setup server
 apache2 mysql-server phpmyadmin
 
@@ -59,8 +62,7 @@ add path for key and crt
 SSLCertificateFile     /etc/apache2/ssl/example.org.crt
 SSLCertificateKeyFile     /etc/apache2/ssl/example.org.key
 service apache2 reload
-
-#test
+Note: test it
 openssl s_client -connect localhost:443
 
 //restart
