@@ -90,6 +90,7 @@ nano /etc/apache2/ports.conf Note: change port 80 to 8080
 /etc/init.d/apache2 restart
 //Test varnish using 
 curl -I http://localhost
+nano /etc/varnish/default.vcl Note: change port to 80 and host to www.varnish-cache.org
 
 
 sudo apt-get -y update
