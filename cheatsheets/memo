@@ -88,6 +88,8 @@ apt-get install varnish
 nano /etc/default/varnish Note: change port 6081 to 80
 nano /etc/apache2/ports.conf Note: change port 80 to 8080
 /etc/init.d/apache2 restart
+//Test varnish using 
+curl -I http://localhost
 
 
 sudo apt-get -y update
