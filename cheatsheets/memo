@@ -91,6 +91,10 @@ nano /etc/apache2/ports.conf Note: change port 80 to 8080
 //Test varnish using 
 curl -I http://localhost:8080
 
+//list all scheduled chron job
+crontab -l
+//edit chron job
+crontab -e
 
 sudo apt-get -y update
 sudo add-apt-repository ppa:ondrej/php
