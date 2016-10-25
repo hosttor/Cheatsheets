@@ -85,7 +85,9 @@ echo "deb https://repo.varnish-cache.org/debian/ jessie varnish-4.1"\
     >> /etc/apt/sources.list.d/varnish-cache.list
 apt-get update
 apt-get install varnish
+service varnish stop
 nano /etc/default/varnish Note: change port 6081 to 80
+service varnish start
 nano /etc/apache2/ports.conf Note: change port 80 to 8080
 /etc/init.d/apache2 restart
 //Test varnish using 
