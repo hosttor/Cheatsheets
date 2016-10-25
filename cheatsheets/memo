@@ -90,11 +90,19 @@ nano /etc/apache2/ports.conf Note: change port 80 to 8080
 /etc/init.d/apache2 restart
 //Test varnish using 
 curl -I http://localhost:8080
+//1 2 3 4 5 Command
+1 = minutes (0-59)
+2 = hour (24 hour format 0-23)
+3 = day of month (1-31)
+4 = month of year (1-12)
+5 = day of week (0-6 0 or 7 = Sunday, 1-6 = Mon-Sat)
 
-//list all scheduled chron job
+//list user chron table
 crontab -l
-//edit chron job
+//create new chron table
 crontab -e
+//remove a chron table and all scheduled job
+crontab -r
 
 sudo apt-get -y update
 sudo add-apt-repository ppa:ondrej/php
