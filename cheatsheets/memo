@@ -47,6 +47,13 @@ apt-get update --fix-missing
 
 //setup server
 apache2 mysql-server phpmyadmin
+//enable clean url
+<Directory /var/www/>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+</Directory>
 
 //test apache
 apache2ctl configtest
