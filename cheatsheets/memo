@@ -65,6 +65,11 @@ service apache2 reload
 Note: test it
 openssl s_client -connect localhost:443
 
+//letsencrypt.org - certbot.eff.org
+$ sudo apt-get install python-certbot-apache -t jessie-backports
+certbot --apache Note: or certbot --apache certonly
+certbot renew --dry-run Note: or certbot renew --quiet
+
 //restart
 /etc/init.d/apache2 restart
 
