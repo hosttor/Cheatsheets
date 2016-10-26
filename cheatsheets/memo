@@ -47,13 +47,15 @@ apt-get update --fix-missing
 
 //setup server
 apache2 mysql-server phpmyadmin
-//enable clean url
+//enable clean url - add to /etc/apache2/site-available/000-default and default
 <Directory /var/www/>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride All
     Order allow,deny
     allow from all
 </Directory>
+//emable rewrite
+a2enmod rewrite
 
 //test apache
 apache2ctl configtest
